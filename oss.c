@@ -229,7 +229,7 @@ int main(int argc, char *argv[]) {
     unsigned int last_launch_time_ms = 0;
     int next_proc_id_to_launch = 0;
 
-    // Main simulation loop - runs until max total processes or time exceeded
+    // Main simulation loop - runs until max total processes
     while (total_created < MAX_TOTAL_PROCS &&
            (time(NULL) - real_start) < (time_t)max_simulation_seconds) {
 
@@ -606,6 +606,6 @@ void cleanup_and_exit(int sig) {
         fclose(logfile);
     }
 
-    // Exit with success or failure depending on signal
+    // Exit with success or failure
     exit(sig == 0 ? EXIT_SUCCESS : EXIT_FAILURE);
 }

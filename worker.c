@@ -28,7 +28,7 @@ typedef struct {
     long mtype;      // Message type (required by System V message queues)
     pid_t pid;       // Process ID of this worker process
     int address;     // Requested memory address
-    Operation op;    // Read or Write operation
+    Operation op;    // Read/Write operation
 } Message;
 
 // Global variables for message queue ID, process ID, and counters
@@ -108,7 +108,7 @@ int main(int argc, char *argv[]) {
 
         mem_access_count++;                  // Count the completed memory access
 
-        // Check if termination condition reached (approx every 1000 memory accesses)
+        // Check if termination condition reached 
         if (mem_access_count >= terminate_after) {
             break;                          // Exit loop to terminate process
         }
